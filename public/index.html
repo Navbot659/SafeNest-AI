@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeNest AI - Advanced Family Safety</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Apple PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SafeNest AI">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-bg">
+            <div class="floating-element floating-1"></div>
+            <div class="floating-element floating-2"></div>
+            <div class="floating-element floating-3"></div>
+        </div>
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <div class="nest-icon">🏡</div>
+                <h1>SafeNest AI</h1>
+                <p class="welcome-subtitle">Advanced Family Safety Platform</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Advanced AI Analytics</h3>
+                    <p>Machine learning algorithms analyze family patterns</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Predictive Safety Alerts</h3>
+                    <p>Proactive notifications based on behavioral analysis</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Voice Control System</h3>
+                    <p>Natural language commands for hands-free operation</p>
+                </div>
+            </div>
+            <button class="btn btn--primary welcome-btn" id="welcomeBtn" type="button">
+                Enter SafeNest
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="tech-specs">
+                <div class="spec-item">
+                    <span class="spec-icon">☁️</span>
+                    <span class="spec-text">16GB Multi-Cloud Storage</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-icon">🔐</span>
+                    <span class="spec-text">AES-256 Encryption</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-icon">🧠</span>
+                    <span class="spec-text">Local AI Processing</span>
+                </div>
+            </div>
+            
+            <!-- Developer credit at bottom -->
+            <div class="developer-credit">
+                <span>Developed by Nav</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="mainApp" class="main-app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-small">
+                    <span class="nest-icon-small">🏡</span>
+                    <span class="app-name">SafeNest AI</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn--icon voice-btn" id="voiceBtn" title="Voice Commands">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="btn btn--icon emergency-btn" id="emergencyBtn" title="Emergency">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+            <!-- Dashboard View -->
+            <div id="dashboardView" class="view dashboard-view">
+                <div class="dashboard-header">
+                    <h2>Family Overview</h2>
+                    <div class="safety-status">
+                        <div class="status-indicator status--safe"></div>
+                        <span class="status-text">All Safe</span>
+                    </div>
+                </div>
+
+                <div class="family-cards">
+                    <div class="family-card guardian-card">
+                        <div class="member-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="You">
+                            <div class="status-dot status--online"></div>
+                        </div>
+                        <div class="member-info">
+                            <h3>You</h3>
+                            <p class="member-role">Guardian</p>
+                            <p class="member-location">🏠 Home</p>
+                        </div>
+                        <div class="member-stats">
+                            <div class="battery-indicator">
+                                <i class="fas fa-battery-three-quarters"></i>
+                                <span>85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-card">
+                        <div class="member-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b1e2c9fd3e3d3?w=100&h=100&fit=crop&crop=face" alt="Mom">
+                            <div class="status-dot status--online"></div>
+                        </div>
+                        <div class="member-info">
+                            <h3>Mom</h3>
+                            <p class="member-role">Family Member</p>
+                            <p class="member-location">🛒 Market</p>
+                        </div>
+                        <div class="member-stats">
+                            <div class="battery-indicator">
+                                <i class="fas fa-battery-half"></i>
+                                <span>67%</span>
+                            </div>
+                            <div class="last-seen">5 min ago</div>
+                        </div>
+                    </div>
+
+                    <div class="family-card">
+                        <div class="member-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Dad">
+                            <div class="status-dot status--driving"></div>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dad</h3>
+                            <p class="member-role">Family Member</p>
+                            <p class="member-location">🏢 Office</p>
+                        </div>
+                        <div class="member-stats">
+                            <div class="battery-indicator battery--low">
+                                <i class="fas fa-battery-quarter"></i>
+                                <span>45%</span>
+                            </div>
+                            <div class="last-seen">2 min ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-panel">
+                    <h3>AI Insights</h3>
+                    <div class="insight-cards">
+                        <div class="insight-card">
+                            <div class="insight-icon">📊</div>
+                            <div class="insight-content">
+                                <h4>Family Activity</h4>
+                                <p>40% more together this week</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🔮</div>
+                            <div class="insight-content">
+                                <h4>Prediction</h4>
+                                <p>Everyone home by 7 PM today</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🛡️</div>
+                            <div class="insight-content">
+                                <h4>Safety Score</h4>
+                                <p>98/100 - Excellent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat View -->
+            <div id="chatView" class="view chat-view hidden">
+                <div class="chat-header">
+                    <h2>AI Assistant</h2>
+                    <div class="ai-status">
+                        <div class="ai-indicator"></div>
+                        <span>AI Active</span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="ai-message">
+                        <div class="message-avatar">🧠</div>
+                        <div class="message-content">
+                            <div class="message-text">Hi! I'm your SafeNest AI assistant. I can help you monitor your family, provide insights, and handle emergencies. Try asking "Where is everyone?" or use voice commands!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="quick-action-btn" onclick="sendQuickMessage('Where is everyone?')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Where is everyone?
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('Family safety status?')">
+                        <i class="fas fa-shield-alt"></i>
+                        Safety Status
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('Show insights')">
+                        <i class="fas fa-chart-line"></i>
+                        Show Insights
+                    </button>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Ask about your family...">
+                        <button class="btn btn--icon send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map View -->
+            <div id="mapView" class="view map-view hidden">
+                <div class="map-header">
+                    <h2>Family Locations</h2>
+                    <button class="btn btn--small refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="map-icon">🗺️</div>
+                        <p>Interactive family map would load here</p>
+                        <div class="location-pins">
+                            <div class="location-pin">
+                                <div class="pin-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="You">
+                                </div>
+                                <div class="pin-info">
+                                    <strong>You</strong>
+                                    <span>Home</span>
+                                </div>
+                            </div>
+                            <div class="location-pin">
+                                <div class="pin-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b1e2c9fd3e3d3?w=50&h=50&fit=crop&crop=face" alt="Mom">
+                                </div>
+                                <div class="pin-info">
+                                    <strong>Mom</strong>
+                                    <span>Market</span>
+                                </div>
+                            </div>
+                            <div class="location-pin">
+                                <div class="pin-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Dad">
+                                </div>
+                                <div class="pin-info">
+                                    <strong>Dad</strong>
+                                    <span>Office</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settingsView" class="view settings-view hidden">
+                <div class="settings-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="settings-content">
+                    <div class="settings-section">
+                        <h3>AI Features</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Smart Insights</strong>
+                                <p>AI learns your family patterns</p>
+                            </div>
+                            <div class="toggle-switch active">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Predictive Alerts</strong>
+                                <p>Get warnings before issues occur</p>
+                            </div>
+                            <div class="toggle-switch active">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Voice Commands</strong>
+                                <p>"SafeNest, where is everyone?"</p>
+                            </div>
+                            <div class="toggle-switch active">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Privacy & Security</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Local AI Processing</strong>
+                                <p>All AI runs on your device</p>
+                            </div>
+                            <div class="privacy-badge">✅ Active</div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Data Encryption</strong>
+                                <p>Military-grade AES-256 encryption</p>
+                            </div>
+                            <div class="privacy-badge">✅ Active</div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Storage</h3>
+                        <div class="storage-info">
+                            <div class="storage-stat">
+                                <strong>16GB</strong>
+                                <span>Total Capacity</span>
+                            </div>
+                            <div class="storage-stat">
+                                <strong>1.2GB</strong>
+                                <span>Used (7.5%)</span>
+                            </div>
+                            <div class="storage-stat">
+                                <strong>22+</strong>
+                                <span>Years Remaining</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item nav-item--active" data-view="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-view="chat">
+                <i class="fas fa-comments"></i>
+                <span>AI Chat</span>
+            </button>
+            <button class="nav-item" data-view="map">
+                <i class="fas fa-map"></i>
+                <span>Map</span>
+            </button>
+            <button class="nav-item" data-view="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Voice Overlay -->
+    <div id="voiceOverlay" class="voice-overlay hidden">
+        <div class="voice-content">
+            <div class="voice-animation">
+                <div class="voice-waves">
+                    <div class="wave wave-1"></div>
+                    <div class="wave wave-2"></div>
+                    <div class="wave wave-3"></div>
+                </div>
+                <div class="voice-icon">🎤</div>
+            </div>
+            <h3>Listening...</h3>
+            <p>Say "SafeNest" followed by your command</p>
+            <div class="voice-examples">
+                <span>"SafeNest, where is everyone?"</span>
+                <span>"SafeNest, family status?"</span>
+            </div>
+            <button class="btn btn--secondary close-voice" id="closeVoice">
+                Stop Listening
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
