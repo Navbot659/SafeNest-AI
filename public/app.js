@@ -2,7 +2,7 @@
 // Connects to real backend API for full functionality
 
 // Configuration
-const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://your-backend.railway.app';
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://safenest-ai-backend.onrender.com';
 let authToken = localStorage.getItem('safenest_token');
 
 // Application State
